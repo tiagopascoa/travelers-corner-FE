@@ -27,15 +27,12 @@ const styles = {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    /* height: 10rem; */
+    height: 10rem;
     width: 100%;
-    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px 0px; */
-    /* border: 1px solid rgba(0, 0, 0, 0.125); */
-    /* border-radius: 1rem; */
     cursor: grab;
-    /* @media screen and (max-width: 768px) {
-      height: 15rem;
-    } */
+    @media screen and (max-width: 480px) {
+      height: 8rem;
+    }
   `,
   LinkIcon: styled(HiOutlineExternalLink)`
     color: #28527a;
