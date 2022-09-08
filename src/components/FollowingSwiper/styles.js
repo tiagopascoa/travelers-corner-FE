@@ -27,12 +27,12 @@ const styles = {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    height: 10rem;
+    height: 100%;
     width: 100%;
     cursor: grab;
-    @media screen and (max-width: 480px) {
+    /* @media screen and (max-width: 480px) {
       height: 8rem;
-    }
+    } */
   `,
   LinkIcon: styled(HiOutlineExternalLink)`
     color: #28527a;
