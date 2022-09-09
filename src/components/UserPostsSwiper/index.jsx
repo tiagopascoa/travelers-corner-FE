@@ -4,11 +4,7 @@ import S from "./styles";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 //Swiper
-import SwiperCore, { Pagination /* , Navigation */ } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.min.css";
-import "swiper/swiper.min.css";
-SwiperCore.use([Pagination /* , Navigation */]);
+import Slider from "react-slick";
 
 const UserPosts = ({
   userPosts,
@@ -17,6 +13,7 @@ const UserPosts = ({
   userProfileName,
 }) => {
   const navigate = useNavigate();
+
   const setSwiperMargin = () => {
     if (screenSize <= 480 && userPosts.length > 1) {
       return true;
@@ -29,36 +26,43 @@ const UserPosts = ({
     }
   };
 
+  const settings = {
+    dots: true,
+    arrows: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   const handleClickLocation = (postId) => {
     navigate(`/travel-post/${postId}`);
   };
 
   return userPosts.length > 0 ? (
     <S.SwiperContainer margin={setSwiperMargin() ? "45px" : "0"}>
-      <Swiper
-        spaceBetween={30}
-        slidesPerView={4}
-        /* onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)} */
-        pagination={{ clickable: true }}
-        /* navigation={true} */
-        breakpoints={{
-          // when window width is >= 640px
-          0: {
-            slidesPerView: 1,
-          },
-          480: {
-            slidesPerView: 2,
-          },
-          // when window width is >= 768px
-          768: {
-            slidesPerView: 4,
-          },
-        }}
-      >
+      <Slider {...settings}>
         {userPosts.map((post) => {
           return (
-            <SwiperSlide key={post._id}>
+            <div key={post._id}>
               <S.UserPostCard>
                 <S.ImageContainer>
                   <S.Image src={post.imageUrl} />
@@ -70,10 +74,10 @@ const UserPosts = ({
                   </S.Location>
                 </S.LocationContainer>
               </S.UserPostCard>
-            </SwiperSlide>
+            </div>
           );
         })}
-      </Swiper>
+      </Slider>
     </S.SwiperContainer>
   ) : notLoggedUserProfile ? (
     <S.EmptySateText>

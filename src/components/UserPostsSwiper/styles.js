@@ -4,23 +4,29 @@ import { MdLocationOn } from "react-icons/md";
 const styles = {
   SwiperContainer: styled.div`
     width: 100%;
-    & .swiper-pagination {
-      display: flex;
-      justify-content: center;
+    & .slick-slide > div {
+      margin: 0 10px;
     }
-    & .swiper-wrapper {
-      margin-bottom: ${(props) => props.margin}
+    & .slick-list {
+      margin: 0 -10px;
     }
-    & .swiper-pagination-bullet-active {
-      background: #28527a !important;
-      height: 0.5rem !important;
-      width: 0.5rem !important;
+    & .slick-track {
+      margin-left: unset;
     }
-    & .swiper-pagination-bullet {
-      background: #28527a !important;
-      height: 0.5rem !important;
-      width: 0.5rem !important;
+    & .slick-dots {
+      bottom: -35px;
     }
+    & .slick-dots li button:before {
+      font-size: 10px;
+    }
+    & .slick-dots li button:before {
+      color: #28527a;
+    }
+    & .slick-dots li.slick-active button:before {
+      opacity: 1;
+      color: #28527a;
+    }
+    margin-bottom: ${(props) => props.margin};
   `,
   UserPostCard: styled.div`
     display: flex;
