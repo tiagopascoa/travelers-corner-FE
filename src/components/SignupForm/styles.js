@@ -47,6 +47,10 @@ const styles = {
     font-family: "Open Sans", sans-serif;
     font-size: 0.8rem;
     color: #28527a;
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   `,
   InputsWrapper: styled.div`
     display: flex;

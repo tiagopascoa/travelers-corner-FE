@@ -36,7 +36,11 @@ function App() {
   return (
     <>
       <Router>
-        <NavMobile isOpen={mobileNavisOpen} toggle={toggleMobileNav} />
+        <NavMobile
+          isOpen={mobileNavisOpen}
+          toggle={toggleMobileNav}
+          setMobileNavisOpen={setMobileNavisOpen}
+        />
         <Navbar toggle={toggleMobileNav} />
         <Routes>
           <Route

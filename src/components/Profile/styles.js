@@ -95,7 +95,7 @@ const styles = {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: ${({ modalGap }) => (modalGap ? "2rem" : "none")};
+    gap: ${({ modalGap }) => (modalGap ? "2rem" : "1rem")};
   `,
   Button: styled.button`
     font-family: "Open Sans Semibold600", sans-serif;

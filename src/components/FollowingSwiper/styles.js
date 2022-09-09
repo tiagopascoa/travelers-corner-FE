@@ -27,18 +27,27 @@ const styles = {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    height: 100%;
+    height: inherit;
     width: 100%;
     cursor: grab;
     /* @media screen and (max-width: 480px) {
       height: 8rem;
     } */
   `,
+  ImageContainer: styled.div`
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `,
+
   LinkIcon: styled(HiOutlineExternalLink)`
     color: #28527a;
     font-size: 0.8rem;
   `,
   NameContainer: styled.div`
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -5,7 +5,7 @@ const styles = {
         border-radius: 50%;
         background: ${({ image }) => `url(${image})`};
         background-size: cover;
-
+        cursor: ${({ cursor }) => `${cursor}`};
         ${({ size }) => {
             if (size) {
                 return css`

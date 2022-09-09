@@ -61,10 +61,12 @@ const FollowingSwiper = ({
           return (
             <SwiperSlide key={user._id}>
               <S.UserCard>
-                <ProfileImage
-                  image={user.imageUrl}
-                  size={screenSize <= 480 ? 6 : 8}
-                />
+                <S.ImageContainer>
+                  <ProfileImage
+                    image={user.imageUrl}
+                    size={screenSize <= 480 ? 6 : 8}
+                  />
+                </S.ImageContainer>
                 <S.NameContainer onClick={() => handleCLickUserName(user._id)}>
                   <S.LinkIcon />
                   <S.Name>

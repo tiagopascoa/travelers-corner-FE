@@ -49,6 +49,7 @@ const styles = {
     display: flex;
     margin-left: auto;
     gap: 0.1rem;
+    cursor: pointer;
   `,
   LocationIncon: styled(MdLocationOn)`
     color: #28527a;

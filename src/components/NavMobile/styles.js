@@ -52,6 +52,21 @@ const styles = {
       font-size: 1.5rem;
     }
   `,
+  LogoutText: styled.span`
+  font-family: "Open Sans Semibold600", sans-serif;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  list-style: none;
+  transition: 0.2s ease-in-out;
+  color: #ffffff;
+  cursor: pointer;
+  @media screen and (max-width: 300px) {
+    font-size: 1.5rem;
+  }
+`,
   MobileNaveItem: styled.div`
     display: flex;
     align-items: center;

@@ -5,8 +5,16 @@ import S from "./styles";
 import avatarImage from "../../assets/images/avatar.png";
 
 const ProfileImage = (props) => {
-  const { image, size } = props;
-  return <S.Container image={image || avatarImage} size={size} />;
+  const { image, size, handleClick , cursor } = props;
+
+  return (
+    <S.Container
+      image={image || avatarImage}
+      size={size}
+      onClick={handleClick}
+      cursor={cursor}
+    />
+  );
 };
 
 export default ProfileImage;

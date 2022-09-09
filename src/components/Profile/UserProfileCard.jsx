@@ -170,7 +170,7 @@ const UserProfileCard = () => {
               <S.Name>
                 {userProfile.firstName} {userProfile.lastName}
               </S.Name>
-              <S.Email>{userProfile.email}</S.Email>
+              {/* <S.Email>{userProfile.email}</S.Email> */}
               <S.LocationContainer>
                 <S.LocationIncon />
                 <S.Location>

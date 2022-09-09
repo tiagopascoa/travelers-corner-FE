@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useLogout } from "../../hooks/useLogout";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
-const NavMobile = ({ toggle, isOpen }) => {
+const NavMobile = ({ toggle, isOpen, setMobileNavisOpen }) => {
   const { user } = useAuthContext();
   const { logout } = useLogout();
   const navigate = useNavigate();
@@ -17,6 +17,7 @@ const NavMobile = ({ toggle, isOpen }) => {
   const handleClickLogOut = () => {
     logout();
     navigate("/");
+    setMobileNavisOpen(false);
   };
 
   return (
@@ -43,9 +44,9 @@ const NavMobile = ({ toggle, isOpen }) => {
             <S.MobileNavLink to="/my-profile" onClick={toggle}>
               My Profile
             </S.MobileNavLink>
-            <S.MobileNavLink to="#" onClick={handleClickLogOut}>
+            <S.LogoutText onClick={handleClickLogOut}>
               Logout
-            </S.MobileNavLink>
+            </S.LogoutText>
           </>
         )}
       </S.MobileNavMenu>

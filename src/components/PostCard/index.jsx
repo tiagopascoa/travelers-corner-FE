@@ -11,7 +11,7 @@ import { newLike, deleteLike } from "../../api/apiEndpoints";
 const PostCard = ({ post, user, travelPosts, setTravelPosts }) => {
   const navigate = useNavigate();
 
-  const handleClickUserName = (userId) => {
+  const handleClickUser = (userId) => {
     if (userId !== user.userId) {
       navigate(`/user-profile/${userId}`);
     } else {
@@ -60,14 +60,18 @@ const PostCard = ({ post, user, travelPosts, setTravelPosts }) => {
     <S.CardContainer>
       <S.Header>
         <S.UserInfoRow>
-          <ProfileImage image={post.user.imageUrl} />
+          <ProfileImage
+            image={post.user.imageUrl}
+            handleClick={() => handleClickUser(post.user._id)}
+            cursor={"pointer"}
+          />
           <S.NameAndDateContainer>
-            <S.UserName onClick={() => handleClickUserName(post.user._id)}>
+            <S.UserName onClick={() => handleClickUser(post.user._id)}>
               {post.user.firstName} {post.user.lastName}
             </S.UserName>
             <S.Date>{post.createdAt.slice(0, 10)}</S.Date>
           </S.NameAndDateContainer>
-          <S.LocationContainer>
+          <S.LocationContainer onClick={() => handleRedirectToPost(post._id)}>
             <S.LocationIncon />
             <S.Location>
               {post.city}, {post.country}

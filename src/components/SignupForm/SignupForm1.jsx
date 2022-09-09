@@ -21,7 +21,7 @@ const signUpSchema = yup.object().shape({
 const SignUpForm1 = () => {
   const { formStep1Data, setFormStep1Data } = useContext(GeneralContext);
   const navigate = useNavigate();
-  console.log("formStep1Data: ", formStep1Data);
+  /* console.log("formStep1Data: ", formStep1Data); */
   const {
     register,
     handleSubmit,
