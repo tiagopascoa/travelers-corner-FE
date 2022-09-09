@@ -139,7 +139,6 @@ const MyProfileCard = () => {
       ) : (
         <S.PostsAndUsersContainer following>
           <S.TitleContainer>
-            {/* <S.FollowingIcon /> */}
             <S.Title>Following</S.Title>
           </S.TitleContainer>
           <FollowingSwiper

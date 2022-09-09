@@ -5,11 +5,7 @@ import { useNavigate } from "react-router-dom";
 //Components
 import ProfileImage from "../ProfileImage";
 //Swiper
-import SwiperCore, { Pagination /* , Navigation */ } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.min.css";
-import "swiper/swiper.min.css";
-SwiperCore.use([Pagination /* , Navigation */]);
+import Slider from "react-slick";
 
 const FollowingSwiper = ({
   following,
@@ -31,42 +27,48 @@ const FollowingSwiper = ({
     }
   };
 
+  const settings = {
+    dots: true,
+    arrows: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   const handleCLickUserName = (userId) => {
     navigate(`/user-profile/${userId}`);
   };
+
   return following.length > 0 ? (
     <S.SwiperContainer margin={setSwiperMargin() ? "45px" : "0"}>
-      <Swiper
-        spaceBetween={0}
-        slidesPerView={4}
-        /* onSlideChange={() => console.log("slide change")} */
-        /* onSwiper={(swiper) => console.log(swiper)} */
-        pagination={{ clickable: true }}
-        /* navigation={true} */
-        breakpoints={{
-          // when window width is >= 640px
-          0: {
-            slidesPerView: 2,
-          },
-          480: {
-            slidesPerView: 3,
-          },
-          // when window width is >= 768px
-          768: {
-            slidesPerView: 4,
-          },
-        }}
-      >
+      <Slider {...settings}>
         {following.map((user) => {
           return (
-            <SwiperSlide key={user._id}>
+            <div key={user._id} style={{width: "400px"}}>
               <S.UserCard>
-                <S.ImageContainer>
-                  <ProfileImage
-                    image={user.imageUrl}
-                    size={screenSize <= 480 ? 6 : 8}
-                  />
-                </S.ImageContainer>
+                <ProfileImage
+                  image={user.imageUrl}
+                  size={screenSize <= 480 && following.length > 1 ? 6 : 8}
+                />
                 <S.NameContainer onClick={() => handleCLickUserName(user._id)}>
                   <S.LinkIcon />
                   <S.Name>
@@ -74,10 +76,10 @@ const FollowingSwiper = ({
                   </S.Name>
                 </S.NameContainer>
               </S.UserCard>
-            </SwiperSlide>
+            </div>
           );
         })}
-      </Swiper>
+      </Slider>
     </S.SwiperContainer>
   ) : notLoggedUserProfile ? (
     <S.EmptySateText>

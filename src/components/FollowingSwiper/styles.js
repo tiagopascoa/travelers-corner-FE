@@ -4,22 +4,28 @@ import { HiOutlineExternalLink } from "react-icons/hi";
 const styles = {
   SwiperContainer: styled.div`
     width: 100%;
-    & .swiper-pagination {
-      display: flex;
-      justify-content: center;
+    margin-bottom: ${(props) => props.margin};
+    /* & .slick-slide > div {
+      margin: 0 10px;
     }
-    & .swiper-wrapper {
-      margin-bottom: ${(props) => props.margin};
+    & .slick-list {
+      margin: 0 -10px;
+    } */
+    & .slick-track {
+      margin-left: unset;
     }
-    & .swiper-pagination-bullet-active {
-      background: #28527a !important;
-      height: 0.5rem !important;
-      width: 0.5rem !important;
+    & .slick-dots {
+      bottom: -35px;
     }
-    & .swiper-pagination-bullet {
-      background: #28527a !important;
-      height: 0.5rem !important;
-      width: 0.5rem !important;
+    & .slick-dots li button:before {
+      font-size: 10px;
+    }
+    & .slick-dots li button:before {
+      color: #28527a;
+    }
+    & .slick-dots li.slick-active button:before {
+      opacity: 1;
+      color: #28527a;
     }
   `,
   UserCard: styled.div`
@@ -27,27 +33,14 @@ const styles = {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    height: inherit;
     width: 100%;
     cursor: grab;
-    /* @media screen and (max-width: 480px) {
-      height: 8rem;
-    } */
   `,
-  ImageContainer: styled.div`
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  `,
-
   LinkIcon: styled(HiOutlineExternalLink)`
     color: #28527a;
     font-size: 0.8rem;
   `,
   NameContainer: styled.div`
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,7 +50,6 @@ const styles = {
     margin: auto;
     cursor: pointer;
   `,
-
   Name: styled.span`
     font-family: "Open Sans Semibold600", sans-serif;
     font-size: 0.7rem;
