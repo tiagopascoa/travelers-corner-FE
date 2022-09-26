@@ -19,7 +19,7 @@ You can try the deployed version! \
 Travelers Corner is live on [https://travelers-corner.netlify.app/](https://travelers-corner.netlify.app/).
 
 ## Server
-Server is runnig on a diferent app (Node.js + Express.js). 
+Server is running on a diferent app (Node.js + Express.js). 
 To try it local please refere to this repository from my account: [travelers-corner-be](https://github.com/tiagopascoa/travelers-corner-BE).
 Make sure all the .env variables are updated with your own keys (follow .env.example).
 
